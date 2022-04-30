@@ -14,6 +14,10 @@ class Config():
     SENDER_ALIAS = "[Flasky app notification]"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    @staticmethod
+    def init_app(app):
+        pass
+
 
 # define development specific config options
 class DevelopmentConfig(Config):
@@ -31,6 +35,7 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = my_db_url
 
 
+# define production specific config options
 class ProductionConfig(Config):
     curr_dir = os.getcwd()
     my_db_url = 'sqlite:///' + str(Path(curr_dir, 'data.sqlite'))
