@@ -41,3 +41,10 @@ class ProductionConfig(Config):
     my_db_url = 'sqlite:///' + str(Path(curr_dir, 'data.sqlite'))
     SQLALCHEMY_DATABASE_URI = my_db_url
 
+
+config = {
+    'development': DevelopmentConfig,
+    'testing': TestingConfig,
+    'production': ProductionConfig,
+    'default': DevelopmentConfig
+}
