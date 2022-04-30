@@ -4,6 +4,7 @@ from pathlib import Path
 
 # define any/all config options common across all classes
 class Config():
+    SECRET_KEY = "archit"
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True

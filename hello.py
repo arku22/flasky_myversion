@@ -14,9 +14,6 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 
 
-app.config['SECRET_KEY'] = "archit"
-
-
 # initialize flask extensions
 bootstrap = Bootstrap(app)
 moment = Moment(app)
