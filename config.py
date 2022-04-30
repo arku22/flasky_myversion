@@ -18,7 +18,14 @@ class Config():
 # define development specific config options
 class DevelopmentConfig(Config):
     DEBUG = True
-    # set flask app.config
     curr_dir = os.getcwd()
     my_db_url = 'sqlite:///' + str(Path(curr_dir, 'data-dev.sqlite'))
+    SQLALCHEMY_DATABASE_URI = my_db_url
+
+
+# define testing specific config options
+class TestingConfig(Config):
+    TESTING = True
+    curr_dir = os.getcwd()
+    my_db_url = 'sqlite:///' + str(Path(curr_dir, 'data-test.sqlite'))
     SQLALCHEMY_DATABASE_URI = my_db_url
