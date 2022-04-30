@@ -29,3 +29,10 @@ class TestingConfig(Config):
     curr_dir = os.getcwd()
     my_db_url = 'sqlite:///' + str(Path(curr_dir, 'data-test.sqlite'))
     SQLALCHEMY_DATABASE_URI = my_db_url
+
+
+class ProductionConfig(Config):
+    curr_dir = os.getcwd()
+    my_db_url = 'sqlite:///' + str(Path(curr_dir, 'data.sqlite'))
+    SQLALCHEMY_DATABASE_URI = my_db_url
+
