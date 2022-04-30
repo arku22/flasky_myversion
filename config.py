@@ -1,11 +1,23 @@
 import os
+from pathlib import Path
 
 
+# define any/all config options common across all classes
 class Config():
-    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-    app.config['MAIL_PORT'] = 587
-    app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
-    app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
-    app.config['RECEIVE_ADDRESS'] = os.environ.get('RECEIVE_ADDRESS')
-    app.config['SENDER_ALIAS'] = "[Flasky app notification]"
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    RECEIVE_ADDRESS = os.environ.get('RECEIVE_ADDRESS')
+    SENDER_ALIAS = "[Flasky app notification]"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+# define development specific config options
+class DevelopmentConfig(Config):
+    DEBUG = True
+    # set flask app.config
+    curr_dir = os.getcwd()
+    my_db_url = 'sqlite:///' + str(Path(curr_dir, 'data-dev.sqlite'))
+    SQLALCHEMY_DATABASE_URI = my_db_url

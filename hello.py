@@ -13,11 +13,7 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-# set flask app.config
-curr_dir = os.getcwd()
-my_db_url = 'sqlite:///' + str(Path(curr_dir, 'mydb.sqlite'))
-app.config["SQLALCHEMY_DATABASE_URI"] = my_db_url
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 app.config['SECRET_KEY'] = "archit"
 
 
