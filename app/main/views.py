@@ -1,5 +1,6 @@
 from . import main
 from flask import render_template, redirect, url_for, session
+from .forms import NameForm
 
 
 @main.route('/', ['GET', 'POST'])
