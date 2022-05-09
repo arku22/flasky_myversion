@@ -1,8 +1,9 @@
 from . import main
-from flask import render_template, redirect, url_for, session
+from flask import render_template, redirect, url_for, session, current_app
 from .forms import NameForm
 from .. import db
 from ..models import User
+from ..email import send_email
 
 
 @main.route('/', ['GET', 'POST'])
@@ -15,7 +16,7 @@ def index():
             new_user = User(username=form.name.data)
             db.session.add(new_user)
             db.session.commit()
-            send_email(app.config['RECEIVE_ADDRESS'],
+            send_email(current_app.config['RECEIVE_ADDRESS'],
                        'New User Added',
                        template_name="mail/new_user",
                        user=new_user
