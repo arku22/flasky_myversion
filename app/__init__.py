@@ -26,5 +26,7 @@ def create_app(config_name):
     moment.init_app(app)
 
     # register blueprint
+    from .main import main
+    app.register_blueprint(main)
 
     return app
