@@ -11,3 +11,11 @@ migrate = Migrate(app, db)
 @app.shell_context_processor
 def make_shell_context():
     return dict(db=db, User=User, Role=Role)
+
+
+# enable running unittests
+@app.cli.command()
+def test():
+    import unittest
+    tests = unittest.TestLoader().discover('test_basics')
+    unittest.TextTestRunner(verbosity=2).run(test)
