@@ -38,6 +38,6 @@ class User(db.Model):
         return f"{self.username}"
 
 
-@login_manager.user_loader()
+@login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
