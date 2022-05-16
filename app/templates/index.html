@@ -6,9 +6,9 @@
 
 <div class="page-header">
     <h1>
-        Hello, {% if name %}{{ name|capitalize }}{% else %}Stranger{% endif %}!
+        Hello, {% if current_user.is_authenticated %}{{ current_user.username|capitalize }}{% else %}Stranger{% endif %}!
     </h1>
-    {% if known %}
+    {% if current_user.is_authenticated %}
     <p>Nice to meet you again!</p>
     {% else %}
     <p>Pleased to meet you!</p>
