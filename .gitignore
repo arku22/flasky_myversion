@@ -2,3 +2,4 @@
 .idea
 __pycache__
 data-test.sqlite
+data-dev.sqlite
